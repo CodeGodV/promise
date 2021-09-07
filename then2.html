@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	new Promise((resolve, reject) => {
+		resolve("fulfilled")
+	})
+	.then(value => {
+		class ljn {
+			then(resolve, reject) {
+				resolve('123')
+			}
+		}
+		return new ljn();
+	})
+	.then(value => {
+		console.log(value)
+	}, reason => {
+		console.log(reason)
+	})
+</script>

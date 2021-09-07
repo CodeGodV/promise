@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	// resolve、1、2、setTimeout
+	// setTimeout(() => {
+	// 	console.log('setTimeout')
+	// }, 0)
+	// new Promise((resolve, reject) => {
+	// 	resolve()
+	// 	console.log('resolve')
+	// }).then(() => {
+	// 	console.log('2')
+	// })
+	// console.log('1')
+
+	// Promise、1、setTimeout、resolve
+	new Promise((resolve, reject) => {
+		setTimeout(() => {
+			console.log('setTimeout')
+			resolve()
+		})
+		console.log("Promise")
+	}).then(() => {
+		console.log("resolve")
+	})
+	console.log("1")
+</script>

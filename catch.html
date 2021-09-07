@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	new Promise((resovle, reject) => {
+		throw new Error('faill')
+	})
+	.then(value => {
+		console.log(value)
+	})
+	.catch(reason => {
+		console.log(reason)
+	})
+
+	new Promise((resolve, reject) => {
+		// reject("fail")
+		resolve("success")
+	})
+	.then(value => {
+		return new Promise((resolve, reject) => {
+			reject("no")
+		})
+	})
+	.catch(reason => {
+		console.log(reason)
+	})
+</script>

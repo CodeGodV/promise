@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	function p1() {
+		return new Promise(resolve => {
+			setTimeout(() => {
+				resolve('p1')
+			}, 2000)
+		})
+	}
+	function p2() {
+		return new Promise(resolve => {
+			setTimeout(() => {
+				resolve('p2')
+			}, 2000)
+		})
+	}
+	// async function study() {
+	// 	let s1 = p1()
+	// 	let s2 = p2()
+	// 	let res1 = await s1;
+	// 	let res2 = await s2;
+	// 	console.log(res1, res2)
+	// }
+	async function study() {
+		let res = await Promise.all([p1(), p2()])
+		console.log(res)
+	}
+	study()
+</script>

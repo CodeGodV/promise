@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	function timeout(delay) {
+		return new Promise(resolve => {
+			setTimeout(resolve, delay)
+		})
+	}
+	timeout(2000).then(() => {console.log(123)})
+</script>

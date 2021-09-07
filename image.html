@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+	// function loadImage(src, resolve, reject) {
+	// 	let image = new Image();
+
+	// 	image.src = src;
+
+	// 	image.onload = () => {
+	// 		resolve(image);
+	// 	};
+
+	// 	image.onerror = reject;
+
+	// }
+
+	// loadImage('./1.jpg', (image) => {
+	// 	document.body.appendChild(image);
+	// }, () => {
+	// 	console.log("加载失败")
+	// })
+
+
+	function loadImage(src) {
+		return new Promise((resolve, reject) => {
+			let image = new Image();
+			image.src = src;
+			image.onload = () => {
+				resolve(image);
+			};
+			image.onerror = reject;
+		})
+	}
+
+	loadImage('./1.jpg').then((image) => {
+		document.body.appendChild(image);
+	})
+	
+</script>

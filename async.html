@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+	async function ryan() {}
+	console.log(ryan())
+
+	async function ljn() {
+		return 'ljn'
+	}
+	ljn().then(v => console.log(v))
+
+	async function pdd() {
+		let wait = await "lijingnan"
+		console.log(wait)
+	}
+	pdd()
+
+	async function study() {
+		let name = await new Promise(resolve => {
+			setTimeout(() => {
+				resolve('lijingnan')
+			}, 2000)
+		})
+		console.log(name)
+		let site = await new Promise(resolve => {
+			setTimeout(() => {
+				resolve('study')
+			}, 2000)
+		})
+		console.log(site)
+	}
+
+	study()
+
+</script>

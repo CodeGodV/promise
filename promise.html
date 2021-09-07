@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script>
+	console.log(new Promise((resolve, reject) => {
+		// resolve("成功");
+		reject("失败");
+	})
+	.then((value) => {
+		console.log("操作成功")
+	}, (reason) => {
+		console.log("操作失败")
+	}))
+</script>

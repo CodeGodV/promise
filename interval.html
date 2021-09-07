@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<style>
+	div{
+		width: 50px;
+		height: 50px;
+		background: pink;
+		position: absolute;
+	}
+</style>
+<body>
+	<div></div>
+</body>
+</html>
+<script>
+	function interval(callback, delay=100) {
+		let id = setInterval(() => {
+			callback(id)
+		}, delay)
+	}
+
+	interval(timeId => {
+		const div = document.querySelector("div");
+		let left = parseInt(window.getComputedStyle(div).left)
+		div.style.left = left + 10 + "px";
+		if (left >= 200) {
+			clearInterval(timeId);
+			interval(timeId => {
+				let width = parseInt(window.getComputedStyle(div).width)
+				div.style.width = width - 10 + "px";
+				if (width <= 20) {
+					clearInterval(timeId);
+				}
+			})
+		}
+
+	})
+</script>

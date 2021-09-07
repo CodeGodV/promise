@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+
+</body>
+</html>
+<script type="text/javascript">
+	const p1 = Promise.resolve(1)
+	const p2 = Promise.reject(2)
+
+	Promise.allSettled([p1, p2]).then(value => {
+		console.log(value)
+	})
+</script>

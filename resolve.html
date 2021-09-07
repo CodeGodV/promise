@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+</body>
+</html>
+<script>
+
+	const url = 'http://piaofang.maoyan.com/dashboard-ajax/movie?orderType=0&uuid=174fe5d382052-0edf446d9ca2bf-31687304-13c680-174fe5d3821c8&riskLevel=71&optimusCode=10&_token=eJyNkk9Lw0AQxb%2FLnodkdmfyZwNFCqJU8GCpXsTDto1psElKkhZF%2FO7Obq2o9CAE9rcvj%2FeGSd5VP1urAkEdyl4VSkcYpQrUOKhCp6itTdhqYy2o1S8t4ywBtewfLlXxqJkRmPnJK3MRjopFfIIfSCiP98zEojbjuCvieFe77tm1VdS47s210apr4rUbNsvO9eu46Q51KfP833xRt1f77XZY9WXZTsZ%2BXyqpbBa%2BMpOZmUnyjmQCpUL6DyVniM%2BQ%2BU7BE6XZqeMMkbbAZANJG%2BlABGzCW8yBtQkkyYhCxuZAlgJpoCzxlAsl%2FjsZmZk4aGkCZNhTwrJnn2KYQLyeyIBJgya9hkIeZmB0LqSlwyAHQtBW%2B5W9%2BJXJ6b7O8XS%2Flf9ErENdtULlzevivppNp9fVdH43maiPT2N3jc0%3D'
+
+	function ajax(url) {
+		return new Promise((resolve, reject) => {
+			let xhr = new XMLHttpRequest();
+			xhr.open('GET', url);
+			xhr.send();
+			xhr.onload = function() {
+				if (this.status === 200) {
+					resolve(JSON.parse(this.response))
+				} else {
+					reject("失败");
+				}
+			}
+			xhr.onerror = function() {
+				reject("失败");
+			};
+		})
+	}
+
+	function query() {
+		const cache = query.cache || (query.cache = new Map());
+		if (cache.has("name")) {
+			console.log("走缓存");
+			return Promise.resolve(cache.get("name"))
+		}
+		return ajax(url).then(value => {
+			console.log("没走缓存");
+			cache.set('name',value)
+			return value;
+		})
+	}
+
+	query().then(value => {
+		console.log(value)
+	})
+
+	setTimeout(() => {
+		query().then(value => {
+			console.log(value)
+		})
+	}, 2000)
+
+</script>
